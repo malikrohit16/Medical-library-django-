@@ -1,0 +1,49 @@
+{% extends 'firstaid_app/base.html' %}
+
+
+{% block title %}
+REGISTRATION
+{% endblock %}
+
+{% block body_block %}
+<div style="background:url('http://www.clker.com/cliparts/6/J/0/H/Q/6/red-plus-hi.png') no-repeat;
+            padding: 80px;
+            margin:0px 250px;
+            color: white;">
+    <h1 style="font-size: 50px"> <strong>Sign Up</strong> </h1>
+    <p style="font-size: 30px">Please fill in this form to create an account.</p>
+    <hr>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    {% if registered %}
+    <h1>Thank you for registering!</h1>
+    {% else %}
+    
+    <form enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+        <div style="color: whitesmoke;" class="container">
+            {{ user_form.as_p }}
+            <p>By creating an account you agree to our <a href="#" style="color:dodgerblue ">Terms & Privacy</a>.</p>
+            <a href="{% url 'firstaid_app:index' %}" class="button" style="text-decoration:none; border: 1px solid black; text-align: center; padding: 5px; color: black; background: #f44336;">Cancel</a>
+            <input type="submit" name="" value="Register" style="border: 1px solid black; text-align:center; background: rgb(232, 237, 238);">
+        </div>
+    </form>
+
+
+
+    {% endif %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+
+{% endblock %}
